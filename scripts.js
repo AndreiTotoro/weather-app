@@ -4,6 +4,8 @@ const domElements = {
     feelsLike: document.getElementById('feelsLike'),
     wind: document.getElementById('wind'),
     humidity: document.getElementById('humidity'),
+    searchField: document.getElementById('searchField'),
+    submitButton: document.getElementById('submitButton'),
 };
 
 function knotToKmh(knot) {
@@ -14,7 +16,8 @@ function kelvinToCelsius(kelvin) {
     return Math.round(kelvin - 273.15);
 }
 
-async function getWeatherData(location) {
+async function getWeatherData() {
+    const location = domElements.searchField.value;
     const response = await fetch(
         `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
         {
@@ -37,3 +40,5 @@ function weatherChanger(data) {
     domElements.wind.textContent = `Wind: ${knotToKmh(data.wind.speed)} Km/Hr`;
     domElements.humidity.textContent = `Humidity: ${data.main.humidity}%`;
 }
+
+domElements.submitButton.addEventListener('click', getWeatherData);
