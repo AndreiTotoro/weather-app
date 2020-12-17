@@ -1,10 +1,14 @@
 const domElements = {
     cityInfo: document.getElementById('cityInfo'),
     temperature: document.getElementById('temperature'),
-    feelsLike: document.getElementById('feelLike'),
+    feelsLike: document.getElementById('feelsLike'),
     wind: document.getElementById('wind'),
     humidity: document.getElementById('humidity'),
 };
+
+function knotToKmh(knot) {
+    return knot * 1.852;
+}
 
 async function getWeatherData(location) {
     const response = await fetch(
@@ -19,6 +23,13 @@ async function getWeatherData(location) {
         return 'No such city';
     }
 
-    domElements.cityInfo.textContent =
-        weatherData.name + ', ' + weatherData.sys.country;
+    weatherChanger(weatherData);
+}
+
+function weatherChanger(data) {
+    domElements.cityInfo.textContent = data.name + ', ' + data.sys.country;
+    domElements.temperature.textContent = `${data.main.temp}°`;
+    domElements.feelsLike.textContent = `Feels like: ${data.main.feels_like}°`;
+    domElements.wind.textContent = `Wind: ${data.wind.speed} KMH`;
+    domElements.humidity.textContent = `Humidity: ${data.main.humidity}`;
 }
