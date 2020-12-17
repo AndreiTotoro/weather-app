@@ -6,14 +6,24 @@ const domElements = {
     humidity: document.getElementById('humidity'),
     searchField: document.getElementById('searchField'),
     submitButton: document.getElementById('submitButton'),
+    celsiusButton: document.getElementById('celsiusButton'),
+    fahrenheitButton: document.getElementById('fahrenheitButton'),
 };
 
 function knotToKmh(knot) {
     return Math.round(knot * 1.852);
 }
 
+function knotToMph(knot) {
+    return Math.round(knot * 1.151);
+}
+
 function kelvinToCelsius(kelvin) {
     return Math.round(kelvin - 273.15);
+}
+
+function kelvinToFahrenheit(kelvin) {
+    return Math.round((kelvin - 273.15) * 1.8 + 32);
 }
 
 async function getWeatherData() {
@@ -41,4 +51,18 @@ function weatherChanger(data) {
     domElements.humidity.textContent = `Humidity: ${data.main.humidity}%`;
 }
 
+function changeToCelsius() {
+    domElements.temperature.textContent = `${kelvinToCelsius(data.main.temp)}°`;
+    domElements.feelsLike.textContent = `Feels like: ${kelvinToCelsius(data.main.feels_like)}°`;
+    domElements.wind.textContent = `Wind: ${knotToKmh(data.wind.speed)} Km/Hr`;
+}
+
+function changeToFahrenheit() {
+    domElements.temperature.textContent = `°${kelvinToFahrenheit(data.main.temp)}`;
+    domElements.feelsLike.textContent = `Feels like: °${kelvinToFahrenheit(data.main.feels_like)}`;
+    domElements.wind.textContent = `Wind: ${knotToMph(data.wind.speed)} Mph/Hr`;
+}
+
 domElements.submitButton.addEventListener('click', getWeatherData);
+domElements.celsiusButton.addEventListener('click', changeToCelsius);
+domElements.fahrenheitButton.addEventListener('click', changeToFahrenheit);
