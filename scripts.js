@@ -7,7 +7,11 @@ const domElements = {
 };
 
 function knotToKmh(knot) {
-    return knot * 1.852;
+    return Math.round(knot * 1.852);
+}
+
+function kelvinToCelsius(kelvin) {
+    return Math.round(kelvin - 273.15);
 }
 
 async function getWeatherData(location) {
@@ -28,8 +32,8 @@ async function getWeatherData(location) {
 
 function weatherChanger(data) {
     domElements.cityInfo.textContent = data.name + ', ' + data.sys.country;
-    domElements.temperature.textContent = `${data.main.temp}°`;
-    domElements.feelsLike.textContent = `Feels like: ${data.main.feels_like}°`;
-    domElements.wind.textContent = `Wind: ${data.wind.speed} KMH`;
-    domElements.humidity.textContent = `Humidity: ${data.main.humidity}`;
+    domElements.temperature.textContent = `${kelvinToCelsius(data.main.temp)}°`;
+    domElements.feelsLike.textContent = `Feels like: ${kelvinToCelsius(data.main.feels_like)}°`;
+    domElements.wind.textContent = `Wind: ${knotToKmh(data.wind.speed)} Km/Hr`;
+    domElements.humidity.textContent = `Humidity: ${data.main.humidity}%`;
 }
