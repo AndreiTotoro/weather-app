@@ -27,42 +27,62 @@ function kelvinToFahrenheit(kelvin) {
 }
 
 async function getWeatherData() {
-    const location = domElements.searchField.value;
-    const response = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
-        {
-            mode: 'cors',
-        }
-    );
-    const weatherData = await response.json();
+    i = 0;
 
-    if (weatherData.cod == '404') {
-        return 'No such city';
+    if (i == 0) {
+        const location = 'Bucharest';
+        const response = await fetch(
+            `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
+            {
+                mode: 'cors',
+            }
+        );
+        const weatherData = await response.json();
+        i++;
+        return weatherData;
+    } else {
+        const location = domElements.searchField.value;
+        const response = await fetch(
+            `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
+            {
+                mode: 'cors',
+            }
+        );
+        const weatherData = await response.json();
+        return weatherData;
     }
-
-    weatherChanger(weatherData);
 }
 
-function weatherChanger(data) {
+async function dataGetter() {
+    const data = await getWeatherData();
+    return data;
+}
+
+async function weatherChanger() {
+    const data = await dataGetter();
     domElements.cityInfo.textContent = data.name + ', ' + data.sys.country;
-    domElements.temperature.textContent = `${kelvinToCelsius(data.main.temp)}°`;
-    domElements.feelsLike.textContent = `Feels like: ${kelvinToCelsius(data.main.feels_like)}°`;
+    domElements.temperature.textContent = `${kelvinToCelsius(data.main.temp)}°C`;
+    domElements.feelsLike.textContent = `Feels like: ${kelvinToCelsius(data.main.feels_like)}°C`;
     domElements.wind.textContent = `Wind: ${knotToKmh(data.wind.speed)} Km/Hr`;
     domElements.humidity.textContent = `Humidity: ${data.main.humidity}%`;
 }
 
-function changeToCelsius() {
-    domElements.temperature.textContent = `${kelvinToCelsius(data.main.temp)}°`;
-    domElements.feelsLike.textContent = `Feels like: ${kelvinToCelsius(data.main.feels_like)}°`;
+async function changeToCelsius() {
+    const data = await dataGetter();
+    domElements.temperature.textContent = `${kelvinToCelsius(data.main.temp)}°C`;
+    domElements.feelsLike.textContent = `Feels like: ${kelvinToCelsius(data.main.feels_like)}°C`;
     domElements.wind.textContent = `Wind: ${knotToKmh(data.wind.speed)} Km/Hr`;
 }
 
-function changeToFahrenheit() {
-    domElements.temperature.textContent = `°${kelvinToFahrenheit(data.main.temp)}`;
-    domElements.feelsLike.textContent = `Feels like: °${kelvinToFahrenheit(data.main.feels_like)}`;
+async function changeToFahrenheit() {
+    const data = await dataGetter();
+    domElements.temperature.textContent = `${kelvinToFahrenheit(data.main.temp)}°F`;
+    domElements.feelsLike.textContent = `Feels like: ${kelvinToFahrenheit(data.main.feels_like)}°F`;
     domElements.wind.textContent = `Wind: ${knotToMph(data.wind.speed)} Mph/Hr`;
 }
 
-domElements.submitButton.addEventListener('click', getWeatherData);
+domElements.submitButton.addEventListener('click', weatherChanger);
 domElements.celsiusButton.addEventListener('click', changeToCelsius);
 domElements.fahrenheitButton.addEventListener('click', changeToFahrenheit);
+
+weatherChanger();
