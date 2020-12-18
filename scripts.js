@@ -26,10 +26,12 @@ function kelvinToFahrenheit(kelvin) {
     return Math.round((kelvin - 273.15) * 1.8 + 32);
 }
 
-async function getWeatherData() {
-    i = 0;
+let i = 0;
 
-    if (i == 0) {
+async function getWeatherData() {
+    if (i === 0) {
+        i = i + 1;
+        console.log(i);
         const location = 'Bucharest';
         const response = await fetch(
             `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
@@ -38,9 +40,9 @@ async function getWeatherData() {
             }
         );
         const weatherData = await response.json();
-        i++;
         return weatherData;
-    } else {
+    } else if (i == 1) {
+        console.log('log');
         const location = domElements.searchField.value;
         const response = await fetch(
             `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
@@ -84,5 +86,10 @@ async function changeToFahrenheit() {
 domElements.submitButton.addEventListener('click', weatherChanger);
 domElements.celsiusButton.addEventListener('click', changeToCelsius);
 domElements.fahrenheitButton.addEventListener('click', changeToFahrenheit);
+domElements.searchField.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        weatherChanger();
+    }
+});
 
 weatherChanger();
