@@ -1,0 +1,123 @@
+body {
+    background: linear-gradient(116.82deg, #2d129a 0%, rgba(0, 60, 176, 0.53) 100%), #ffffff;
+    height: 100vh;
+    background-repeat: no-repeat;
+}
+
+.logo {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 55px;
+    max-width: 310px;
+    margin-left: 91px;
+    margin-top: 88px;
+    color: #ffffff;
+}
+
+.weatherInfo {
+    margin-left: 91px;
+    margin-right: 50px;
+    margin-top: 70px;
+    max-width: 620px;
+}
+
+.weatherStatsContainer {
+    height: 300px;
+    width: 100%;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
+
+.cityInfo {
+    padding-top: 23px;
+    padding-left: 39px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 67px;
+    /* identical to box height */
+
+    color: #ffffff;
+}
+
+.flexbox {
+    display: flex;
+    padding-left: 37px;
+}
+
+.img {
+    padding-left: 37px;
+    max-height: 100px;
+    padding-top: 20px;
+}
+
+.temperature {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 120px;
+    line-height: 146px;
+    color: #ffffff;
+}
+
+.moreStatsContainer {
+    padding-top: 25px;
+    padding-left: 37px;
+}
+
+.moreStatsContainer h3 {
+    font-family: Montserrat;
+    padding-bottom: 15px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #ffffff;
+}
+
+.convertorButtons {
+    padding-left: 37px;
+}
+
+.convertorButtons button {
+    width: 49px;
+    height: 47px;
+    background: rgba(255, 255, 255, 0.38);
+    border-radius: 12px;
+    border: 0;
+    color: #ffffff;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+    margin-right: 8px;
+}
+
+.searchField {
+    border: 0;
+    background: none;
+    font-size: 30px;
+}
+
+.searchField::placeholder {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 200px;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.38);
+    border-radius: 17px;
+    padding: 30px;
+    width: 80%;
+    margin-top: 36px;
+}

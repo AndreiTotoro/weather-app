@@ -4,32 +4,35 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Andrew's Weather App</title>
+        <link rel="stylesheet" href="reset.css" />
         <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet" />
         <script src="scripts.js" defer></script>
     </head>
     <body>
-        <h1>Andrew's Weather App</h1>
+        <h1 class="logo">Andrew's Weather App</h1>
         <div class="weatherInfo">
-            <h1 class="cityInfo" id="cityInfo"></h1>
             <div class="weatherStatsContainer" id="weatherStatsContainer">
-                <h1 class="temperature" id="temperature"></h1>
-                <div class="wrapper">
+                <h1 class="cityInfo" id="cityInfo"></h1>
+                <div class="flexbox">
+                    <h1 class="temperature" id="temperature"></h1>
+                    <img src="Vector 1.png" alt="" class="img" />
                     <div class="moreStatsContainer">
                         <h3 id="feelsLike"></h3>
                         <h3 id="wind"></h3>
                         <h3 id="humidity"></h3>
                     </div>
-                    <div class="convertorButtons">
-                        <button id="celsiusButton" class="active">°C</button>
-                        <button id="fahrenheitButton">°F</button>
-                    </div>
+                </div>
+                <div class="convertorButtons">
+                    <button id="celsiusButton" class="active">°C</button>
+                    <button id="fahrenheitButton">°F</button>
                 </div>
             </div>
-        </div>
-        <div id="citySelector" class="citySelector">
-            <label for="searchField">Check temperature in other places</label>
-            <input type="text" id="searchField" class="searchField" />
-            <button id="submitButton" class="submitButton">Check Temperature</button>
+            <div class="searchBar">
+                <input type="text" id="searchField" class="searchField" placeholder="Search" />
+                <img src="search 1.png" alt="" />
+            </div>
         </div>
     </body>
 </html>

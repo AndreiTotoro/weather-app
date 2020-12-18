@@ -5,7 +5,6 @@ const domElements = {
     wind: document.getElementById('wind'),
     humidity: document.getElementById('humidity'),
     searchField: document.getElementById('searchField'),
-    submitButton: document.getElementById('submitButton'),
     celsiusButton: document.getElementById('celsiusButton'),
     fahrenheitButton: document.getElementById('fahrenheitButton'),
 };
@@ -83,7 +82,6 @@ async function changeToFahrenheit() {
     domElements.wind.textContent = `Wind: ${knotToMph(data.wind.speed)} Mph/Hr`;
 }
 
-domElements.submitButton.addEventListener('click', weatherChanger);
 domElements.celsiusButton.addEventListener('click', changeToCelsius);
 domElements.fahrenheitButton.addEventListener('click', changeToFahrenheit);
 domElements.searchField.addEventListener('keypress', function (e) {
