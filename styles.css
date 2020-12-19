@@ -142,11 +142,57 @@ body {
     color: black !important;
 }
 
+.moreStatsContainer {
+    font-family: 800;
+}
+
+#feelsLike {
+    font-weight: 500;
+}
+
+#wind {
+    font-weight: 500;
+}
+
+#humidity {
+    font-weight: 500;
+}
+
 @media only screen and (max-width: 647px) {
     .cityInfo {
         font-size: 35px;
     }
     .temperature {
+        padding-top: 30px;
         font-size: 70px;
+        line-height: 80px;
+    }
+    .moreStatsContainer {
+        justify-content: space-around;
+        padding-left: 0;
+        display: flex;
+    }
+    .flexbox {
+        display: block;
+    }
+
+    .flexbox img {
+        display: none;
+    }
+    .weatherInfo {
+        margin: 40px;
+    }
+    .weatherStatsContainer {
+        padding-bottom: 100px;
+    }
+    .convertorButtons {
+        padding-top: 30px;
+    }
+    .searchBar {
+        width: 85%;
+    }
+    .logo {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
