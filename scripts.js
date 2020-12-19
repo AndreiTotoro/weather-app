@@ -38,7 +38,7 @@ async function getWeatherData() {
         console.log(i);
         const location = 'Bucharest';
         const response = await fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
+            `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
             {
                 mode: 'cors',
             }
@@ -49,7 +49,7 @@ async function getWeatherData() {
         console.log('log');
         const location = domElements.searchField.value;
         const response = await fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
+            `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=5d434d16c466be64487b49d055ed7aca`,
             {
                 mode: 'cors',
             }
