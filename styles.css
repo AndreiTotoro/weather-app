@@ -98,6 +98,12 @@ body {
     margin-right: 8px;
 }
 
+.convertorButtons button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
 .searchField {
     border: 0;
     background: none;
