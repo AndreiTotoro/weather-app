@@ -169,7 +169,7 @@ body {
     }
     .moreStatsContainer {
         justify-content: space-around;
-        padding-left: 0;
+        padding-left: 10px;
         display: flex;
     }
     .flexbox {
@@ -189,7 +189,7 @@ body {
         padding-top: 30px;
     }
     .searchBar {
-        width: 85%;
+        width: 86%;
     }
     .logo {
         margin-left: auto;
