@@ -12,14 +12,14 @@ body {
     line-height: 55px;
     max-width: 310px;
     margin-left: 91px;
-    margin-top: 88px;
+    margin-top: 48px;
     color: #ffffff;
 }
 
 .weatherInfo {
     margin-left: 91px;
     margin-right: 50px;
-    margin-top: 70px;
+    margin-top: 90px;
     max-width: 620px;
 }
 
@@ -120,4 +120,8 @@ body {
     padding: 30px;
     width: 80%;
     margin-top: 36px;
+}
+
+#submitButton:hover {
+    cursor: pointer;
 }
