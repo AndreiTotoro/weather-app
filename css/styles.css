@@ -163,6 +163,7 @@ body {
 
 @media only screen and (max-width: 647px) {
     .cityInfo {
+        padding-left: 15px;
         font-size: 35px;
     }
     .temperature {
@@ -175,6 +176,10 @@ body {
         padding-left: 0px;
         margin-left: 0px;
         display: flex;
+    }
+
+    .flexbox {
+        padding-left: 15px;
     }
 
     .moreStatsContainer h3 {
@@ -197,6 +202,7 @@ body {
     }
     .convertorButtons {
         padding-top: 30px;
+        padding-left: 15px;
     }
     .searchBar {
         width: 100%;
@@ -204,7 +210,7 @@ body {
         padding-left: 0;
     }
     .searchBar img {
-        padding-right: 50px;
+        padding-right: 30px;
     }
     .logo {
         margin-left: auto;
