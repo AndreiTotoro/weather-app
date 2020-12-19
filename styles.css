@@ -187,6 +187,7 @@ body {
     }
     .weatherInfo {
         margin: 40px;
+        max-width: 100%;
     }
     .weatherStatsContainer {
         padding-bottom: 100px;
@@ -195,10 +196,18 @@ body {
         padding-top: 30px;
     }
     .searchBar {
-        width: 86%;
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .searchBar img {
+        padding-right: 50px;
     }
     .logo {
         margin-left: auto;
         margin-right: auto;
+    }
+    .searchField {
+        padding-left: 36px;
     }
 }
