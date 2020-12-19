@@ -83,8 +83,20 @@ async function changeToFahrenheit() {
     domElements.feelsLike.textContent = `${celsiusToFahrenheit(parseInt(domElements.feelsLike.textContent))}°F`;
 }
 
-domElements.celsiusButton.addEventListener('click', changeToCelsius);
-domElements.fahrenheitButton.addEventListener('click', changeToFahrenheit);
+domElements.celsiusButton.addEventListener('click', () => {
+    if (domElements.celsiusButton.className != 'active') {
+        domElements.celsiusButton.classList.add('active');
+        domElements.fahrenheitButton.classList.remove('active');
+        changeToCelsius();
+    }
+});
+domElements.fahrenheitButton.addEventListener('click', () => {
+    if (domElements.fahrenheitButton.className != 'active') {
+        domElements.fahrenheitButton.classList.add('active');
+        domElements.celsiusButton.classList.remove('active');
+        changeToFahrenheit();
+    }
+});
 domElements.submitButton.addEventListener('click', weatherChanger);
 domElements.searchField.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
