@@ -109,6 +109,8 @@ body {
     background: none;
     font-size: 30px;
     width: 100%;
+    outline: none;
+    color: white;
 }
 
 .searchField::placeholder {
@@ -117,6 +119,7 @@ body {
     font-weight: 500;
     color: #ffffff;
     margin-bottom: 200px;
+    outline: none;
 }
 
 .searchBar {
