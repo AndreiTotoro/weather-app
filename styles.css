@@ -108,6 +108,7 @@ body {
     border: 0;
     background: none;
     font-size: 30px;
+    width: 100%;
 }
 
 .searchField::placeholder {
@@ -128,6 +129,10 @@ body {
     margin-top: 36px;
 }
 
+.searchBar img {
+    align-self: flex-start;
+}
+
 #submitButton:hover {
     cursor: pointer;
 }
@@ -135,4 +140,13 @@ body {
 .active {
     background-color: white !important;
     color: black !important;
+}
+
+@media only screen and (max-width: 647px) {
+    .cityInfo {
+        font-size: 35px;
+    }
+    .temperature {
+        font-size: 70px;
+    }
 }
